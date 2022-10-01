@@ -29,8 +29,10 @@ def tweet(message: str) -> None:
 
 
 def main():
-    tweet_message = sys.argv[1]
-    tweet(message=tweet_message)
+    parser = argparse.ArgumentParser(description='Process CLI Twitter Args.')
+    parser.add_argument('-t', '--tweet', type=str)
+    args = parser.parse_args()
+    tweet(message=args.tweet)
 
 
 if __name__ == '__main__':
